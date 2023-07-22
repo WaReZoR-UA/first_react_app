@@ -1,18 +1,19 @@
 import { Todo } from './Todo'
 import styles from './TodoList.module.css'
 
-export const TodoList = ({ todo, setTodo }) => {
+export const TodoList = ({ todos, setTodos, removeTodo }) => {
   return (
     <ul className={styles.todoList}>
-      {!todo.length && <h2>Todo list is empty</h2>}
-      {todo.map((item, index) => {
+      {!todos.length && <h2>Todo list is empty</h2>}
+      {todos.map((item, index) => {
         return (
           <Todo
             key={index}
             index={index}
             content={item}
-            todo={todo}
-            setTodo={setTodo}
+            todos={todos}
+            setTodos={setTodos}
+            removeTodo={removeTodo}
           />
         )
       })}

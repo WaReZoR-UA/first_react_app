@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Button } from '../UI/Button'
 import styles from './TodoForm.module.css'
 
-export const TodoForm = ({ addTodoHendler }) => {
+export const TodoForm = ({ addTodosHendler }) => {
   const [data, setData] = useState('')
 
   function hendlFormInput(e) {
@@ -11,7 +11,7 @@ export const TodoForm = ({ addTodoHendler }) => {
 
   function onSubmit(e) {
     e.preventDefault()
-    addTodoHendler(data)
+    addTodosHendler(data)
     setData('')
   }
 
