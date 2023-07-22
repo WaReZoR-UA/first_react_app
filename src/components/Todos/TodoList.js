@@ -2,12 +2,9 @@ import { Todo } from './Todo'
 import styles from './TodoList.module.css'
 
 export const TodoList = ({ todo, setTodo }) => {
-  return todo.length <= 0 ? (
-    <>
-      <h2>Todo list is empty</h2>
-    </>
-  ) : (
+  return (
     <ul className={styles.todoList}>
+      {!todo.length && <h2>Todo list is empty</h2>}
       {todo.map((item, index) => {
         return (
           <Todo

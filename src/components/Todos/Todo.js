@@ -10,7 +10,7 @@ export const Todo = ({ content, index, todo, setTodo }) => {
     <li
       className={styles.todoItem}
       onDoubleClick={() => remove(index)}>
-      {content}
+      <span className={styles.todoContent}>{content}</span>
     </li>
   )
 }
