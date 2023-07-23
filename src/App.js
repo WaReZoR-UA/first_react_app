@@ -1,3 +1,4 @@
+import { v4 } from 'uuid'
 import { useState } from 'react'
 import { TodoForm } from './components/Todos/TodoForm'
 import { TodoList } from './components/Todos/TodoList'
@@ -7,18 +8,22 @@ export const App = () => {
   const [todos, setTodos] = useState([])
 
   function addTodosHendler(data) {
-    setTodos(todos => [...todos, data])
+    const newTask = {
+      text: data,
+      status: false,
+      id: v4(),
+    }
+
+    setTodos((todos) => [...todos, newTask])
   }
-	
-  function removeTodoHendler(index) {
-    setTodos(todos.filter((_, i) => i !== index))
+
+  function removeTodoHendler(id) {
+    setTodos(todos.filter((item) => id !== item.id))
   }
   return (
     <div className='App'>
       <h1>Todo App</h1>
-      <TodoForm
-        addTodosHendler={addTodosHendler}
-      />
+      <TodoForm addTodos={addTodosHendler} />
       <TodoList
         todos={todos}
         setTodos={setTodos}
