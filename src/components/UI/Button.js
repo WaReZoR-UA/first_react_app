@@ -1,5 +1,17 @@
-import styles from "./Button.module.css"
+import styles from './Button.module.css'
 
-export const Button = () => {
-	return <button className={styles.todoButton__submit} type='submit'>Submit</button>
+export const Button = (props) => {
+  const {children, onClick, disabled = false, title} = props
+  return (
+    <>
+      <button
+        {...props}
+        className={styles.todoButton__submit}
+        title={title}
+        onClick={onClick}
+        disabled={disabled}>
+        {children}
+      </button>
+    </>
+  )
 }

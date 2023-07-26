@@ -28,7 +28,7 @@ export const TodoForm = ({ addTodos }) => {
         onChange={hendlFormInput}
         value={data}
       />
-      <Button />
+      <Button type='submit' title="Submit">Submit</Button>
     </form>
   )
 }
